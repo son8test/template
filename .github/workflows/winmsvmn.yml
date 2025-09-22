@@ -2,6 +2,8 @@ name: Windows 2022 MSVC 14.2 Build
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
 
 jobs:
   build:

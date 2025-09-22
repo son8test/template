@@ -2,6 +2,8 @@ name: Windows 2025 MSVC Build
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
 
 jobs:
   build:
