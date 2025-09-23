@@ -3,7 +3,7 @@ name: Ubuntu 24.04 g++ 14 Build
 on:
   workflow_dispatch:
   push:
-    branches: [main]
+    branches: [test]
 
 jobs:
   build:

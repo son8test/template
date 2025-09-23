@@ -3,7 +3,7 @@ name: macOS Clang Build
 on:
     workflow_dispatch:
     push:
-      branches: [main]
+      branches: [test]
 
 jobs:
   build:

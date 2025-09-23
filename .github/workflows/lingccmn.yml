@@ -3,7 +3,7 @@ name: Ubuntu 22.04 g++ 10 Build
 on:
   workflow_dispatch:
   push:
-    branches: [main]
+    branches: [test]
 
 jobs:
   build:
