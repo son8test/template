@@ -7,3 +7,6 @@ set( testrepo REPO )
 set( testhash HASH )
 
 add_subdirectory( source )
+
+enable_testing()
+add_subdirectory( testing )

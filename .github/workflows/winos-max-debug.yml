@@ -1,0 +1,25 @@
+name: Windows 2025 MSVC Debug
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [test, test-winos, test-max, test-debug, test-winos-max, test-winos-debug, test-max-debug, test-winos-max-debug]
+
+jobs:
+  build:
+    runs-on: windows-2025
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup MSVC environment
+        uses: ilammy/msvc-dev-cmd@v1
+
+      - name: Configs
+        run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Debug
+
+      - name: Builder
+        run: cmake --build build
+
+      - name: Testing
+        uses: ./.github/actions/testing

@@ -1,0 +1,25 @@
+name: Windows 2025 MSVC Flash
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [test, test-winos, test-max, test-flash, test-winos-max, test-winos-flash, test-max-flash, test-winos-max-flash]
+
+jobs:
+  build:
+    runs-on: windows-2025
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup MSVC environment
+        uses: ilammy/msvc-dev-cmd@v1
+
+      - name: Configs
+        run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+
+      - name: Builder
+        run: cmake --build build
+
+      - name: Testing
+        uses: ./.github/actions/testing

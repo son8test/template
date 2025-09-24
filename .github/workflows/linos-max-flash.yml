@@ -1,0 +1,25 @@
+name: linOS 2404 g++-14 Flash
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [test, test-linos, test-max, test-flash, test-linus-max, test-linus-flash, test-max-flash, test-linus-max-flash]
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set g++ 14 as default
+        run: sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-14 140
+
+      - name: Configs
+        run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+
+      - name: Builder
+        run: cmake --build build
+
+      - name: Testing
+        uses: ./.github/actions/testing

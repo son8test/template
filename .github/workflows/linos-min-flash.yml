@@ -1,0 +1,25 @@
+name: linOS 2204 g++-10 Flash
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [test, test-linos, test-min, test-flash, test-linus-min, test-linus-flash, test-min-flash, test-linus-min-flash]
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set g++ 10 as default
+        run: sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-10 100
+
+      - name: Configs
+        run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+
+      - name: Builder
+        run: cmake --build build
+
+      - name: Testing
+        uses: ./.github/actions/testing
