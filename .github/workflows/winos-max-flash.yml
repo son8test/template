@@ -1,4 +1,4 @@
-name: Windows 2025 MSVC Flash
+name: winOS 2025 MSVC Flash
 
 on:
   workflow_dispatch:
