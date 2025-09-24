@@ -1,0 +1,22 @@
+name: macOS 1500 Default Flash
+
+on:
+    workflow_dispatch:
+    push:
+      branches: [test, test-macos, test-max, test-flash, test-macos-max, test-macos-flash, test-max-flash, test-macos-max-flash]
+
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Configs
+        run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+
+      - name: Builder
+        run: cmake --build build
+
+      - name: Testing
+        uses: ./.github/actions/testing

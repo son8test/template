@@ -1,0 +1,27 @@
+name: winOS 2022 MSVC-14.2 Flash
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [test, test-winos, test-min, test-flash, test-winos-min, test-winos-flash, test-min-flash, test-winos-min-flash]
+
+jobs:
+  build:
+    runs-on: windows-2022
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup MSVC environment
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          toolset: 14.2
+
+      - name: Configs
+        run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+
+      - name: Builder
+        run: cmake --build build
+
+      - name: Testing
+        uses: ./.github/actions/testing
