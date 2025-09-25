@@ -6,7 +6,9 @@ set( SON8PROJ son8__${PROJECT_NAME} )
 set( testrepo REPO )
 set( testhash HASH )
 
-add_subdirectory( source )
+if ( NOT testrepo STREQUAL "REPO" AND NOT testhash STREQUAL "HASH" )
+    add_subdirectory( source )
+endif( )
 
 enable_testing()
 add_subdirectory( testing )
