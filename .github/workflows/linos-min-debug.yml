@@ -15,7 +15,7 @@ jobs:
       - name: g++ Alter
         uses: ./.github/actions/gxx-alter
         with:
-          alter_version: 10
+          alter_version: 11
 
       - name: Configs
         uses: ./.github/actions/configs
