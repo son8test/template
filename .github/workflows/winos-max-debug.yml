@@ -15,11 +15,12 @@ jobs:
       - name: Setup MSVC environment
         uses: ilammy/msvc-dev-cmd@v1
 
-      - name: Configs
-        run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Debug
+      - uses: ./.github/actions/configs
+        with:
+          build_type: Debug
 
       - name: Builder
-        run: cmake --build build
+        uses: ./.github/actions/builder
 
       - name: Testing
         uses: ./.github/actions/testing

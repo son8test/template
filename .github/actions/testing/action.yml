@@ -1,14 +1,8 @@
-name: Testable
-description: 'Run CTest in the build directory'
+name: Testing
+description: 'Test CMake project using CTest'
 runs:
   using: "composite"
   steps:
-    - name: Run CTest (Ubuntu/macOS)
-      if: runner.os != 'Windows'
+    - name: Run ctest (bash)
+      run: ctest --test-dir build --output-on-failure
       shell: bash
-      run: ctest --test-dir build --output-on-failure
-
-    - name: Run CTest (Windows)
-      if: runner.os == 'Windows'
-      shell: pwsh
-      run: ctest --test-dir build --output-on-failure

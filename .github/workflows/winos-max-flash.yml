@@ -16,10 +16,10 @@ jobs:
         uses: ilammy/msvc-dev-cmd@v1
 
       - name: Configs
-        run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+        uses: ./.github/actions/configs
 
       - name: Builder
-        run: cmake --build build
+        uses: ./.github/actions/builder
 
       - name: Testing
         uses: ./.github/actions/testing

@@ -3,7 +3,7 @@ name: linOS 2404 g++-14 Debug
 on:
   workflow_dispatch:
   push:
-    branches: [test, test-linos, test-max, test-debug, test-linus-max, test-linus-debug, test-max-debug, test-linus-max-debug]
+    branches: [test, test-linos, test-max, test-debug, test-linos-max, test-linos-debug, test-max-debug, test-linos-max-debug]
 
 jobs:
   build:
@@ -16,10 +16,12 @@ jobs:
         run: sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-14 140
 
       - name: Configs
-        run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Debug
+        uses: ./.github/actions/configs
+        with:
+          build_type: Debug
 
       - name: Builder
-        run: cmake --build build
+        uses: ./.github/actions/builder
 
       - name: Testing
         uses: ./.github/actions/testing

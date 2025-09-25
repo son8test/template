@@ -3,7 +3,7 @@ name: linOS 2404 g++-14 Flash
 on:
   workflow_dispatch:
   push:
-    branches: [test, test-linos, test-max, test-flash, test-linus-max, test-linus-flash, test-max-flash, test-linus-max-flash]
+    branches: [test, test-linos, test-max, test-flash, test-linos-max, test-linos-flash, test-max-flash, test-linos-max-flash]
 
 jobs:
   build:
@@ -16,10 +16,10 @@ jobs:
         run: sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-14 140
 
       - name: Configs
-        run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+        uses: ./.github/actions/configs
 
       - name: Builder
-        run: cmake --build build
+        uses: ./.github/actions/builder
 
       - name: Testing
         uses: ./.github/actions/testing

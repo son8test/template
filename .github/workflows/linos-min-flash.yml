@@ -3,7 +3,7 @@ name: linOS 2204 g++-10 Flash
 on:
   workflow_dispatch:
   push:
-    branches: [test, test-linos, test-min, test-flash, test-linus-min, test-linus-flash, test-min-flash, test-linus-min-flash]
+    branches: [test, test-linos, test-min, test-flash, test-linos-min, test-linos-flash, test-min-flash, test-linos-min-flash]
 
 jobs:
   build:
@@ -16,10 +16,10 @@ jobs:
         run: sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-10 100
 
       - name: Configs
-        run: cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
+        uses: ./.github/actions/configs
 
       - name: Builder
-        run: cmake --build build
+        uses: ./.github/actions/builder
 
       - name: Testing
         uses: ./.github/actions/testing
