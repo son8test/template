@@ -1,4 +1,4 @@
-name: winOS 2022 MSVC-14.2 Flash
+name: winOS 2022 msvc Min Flash
 
 on:
   workflow_dispatch:

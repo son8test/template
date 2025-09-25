@@ -1,4 +1,4 @@
-name: winOS 2025 MSVC Debug
+name: winOS 2025 msvc Max Debug
 
 on:
   workflow_dispatch:

@@ -1,4 +1,4 @@
-name: winOS 2025 MSVC Flash
+name: winOS 2025 msvc Max Flash
 
 on:
   workflow_dispatch:

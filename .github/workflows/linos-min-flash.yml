@@ -1,4 +1,4 @@
-name: linOS 2204 g++-10 Flash
+name: linOS 2204 g++ Min Flash
 
 on:
   workflow_dispatch:
@@ -12,8 +12,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
-      - name: Set g++ 10 as default
-        run: sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-10 100
+      - name: g++ Alter
+        uses: ./.github/actions/gxx-alter
+        with:
+          alter_version: 10
 
       - name: Configs
         uses: ./.github/actions/configs
