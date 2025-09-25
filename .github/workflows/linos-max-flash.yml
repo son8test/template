@@ -12,6 +12,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
+      - name: g++ Alter
+        uses: ./.github/actions/gxx-alter
+        with:
+          alter_version: 14
+
       - name: Configs
         uses: ./.github/actions/configs
 
