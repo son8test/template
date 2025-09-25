@@ -1,4 +1,4 @@
-name: macOS 1500 Clang Max Flash
+name: macOS 1500 clang Max Flash
 
 on:
     workflow_dispatch:
