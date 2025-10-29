@@ -3,13 +3,16 @@ project( son8test VERSION 0.0.0 LANGUAGES CXX )
 
 set( SON8PROJ son8__${PROJECT_NAME} )
 
-set( testrepo REPO )
-set( testhash HASH )
+set( TESTUSER soneight CACHE STRING "FetchContent user andor organization" )
+set( TESTREPO testrepo CACHE STRING "FetchContent GIT_REPOSITORY project!" )
+set( TESTHASH testhash CACHE STRING "FetchContent GIT_TAG hash andor tag!" )
 
 include( FetchContent )
 
-if ( NOT testrepo STREQUAL "REPO" AND NOT testhash STREQUAL "HASH" )
+if ( NOT ${TESTREPO} STREQUAL "testrepo" AND NOT ${TESTHASH} STREQUAL "testhash" )
     add_subdirectory( source )
+else( )
+    message( WARNING " set variables `TESTREPO` andor `TESTHASH` are not overridden! " )
 endif( )
 
 enable_testing()
