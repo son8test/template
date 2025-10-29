@@ -12,7 +12,7 @@ include( FetchContent )
 if ( NOT ${TESTREPO} STREQUAL "testrepo" AND NOT ${TESTHASH} STREQUAL "testhash" )
     add_subdirectory( source )
 else( )
-    message( WARNING " set variables `TESTREPO` andor `TESTHASH` are not overriden! " )
+    message( WARNING " set variables `TESTREPO` andor `TESTHASH` are not overridden! " )
 endif( )
 
 enable_testing()
