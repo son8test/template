@@ -10,9 +10,9 @@
 Main project repositories **should** contain only source code and minimal documentation.
 
 ## Usage
-> REPO - repository name, HASH - commit hash or tag
+> TESTREPO - repository name, TESTHASH - commit hash or tag, (change TESTUSER if not soneight)
 
-1. Set REPO and HASH inside root [CMakeLists.txt](./CMakeLists.txt)
+1. Set TESTREPO and TESTHASH inside root [CMakeLists.txt](./CMakeLists.txt)
 2. Add tests inside [CMakeLists.txt](./testing/CMakeLists.txt).
 3. Create branch with appropriate pattern to trigger workflows (see [Branch Scheme](#branch-scheme-push-triggers)).
 
@@ -32,7 +32,7 @@ Other:
 - [**msvc-dev-cmd**](https://github.com/ilammy/msvc-dev-cmd/tree/v1): Setup MSVC environment
 
 ## Workflows
->Flash is shorter term for Release build.
+> Flash is shorter term for Release build.
 
 | Workflow | Description |
 |----------|-------------|
