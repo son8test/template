@@ -16,7 +16,7 @@ clean:
 	rm -rf build/ && git restore build/.gitignore
 
 allin:
-	make clean && make cmake && make ninja && make ctest && make usage
+	make clean && make cmake && make ninja && make ctest
 
 build:
 	make cmake && make ninja
