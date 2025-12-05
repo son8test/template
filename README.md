@@ -70,4 +70,4 @@ Combining these three parameters like:
 
 Will trigger specified workflows.
 
-###### each folder MAY contain README with additional information about project
+###### each folder MAY contain README with additional materials
