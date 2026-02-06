@@ -1,6 +1,14 @@
 # SON8TEST
 > Specialized testing for [soneight](https://github.com/soneight) organization projects.
 
+## Recent Changes
+
+- from son8test main branch only test fetched repo main brach, to test other versions just:
+  1. create specific branch for that version with
+  2. appropriate CMake set [TESTHASH](./CMakeLists.txt) variable and
+  3. create [workflow branches](#workflows) from it
+- add simple single test
+
 ## Notice
 > generated from [template](https://github.com/son8test/template)
 
